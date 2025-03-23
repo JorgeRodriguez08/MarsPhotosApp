@@ -26,6 +26,8 @@ import okhttp3.MediaType.Companion.toMediaType
  */
 interface AppContainer {
     val marsPhotosRepository: MarsPhotosRepository
+
+    val marsMoviesRepository: MarsMoviesRepository
 }
 
 /**
@@ -56,5 +58,9 @@ class DefaultAppContainer : AppContainer {
      */
     override val marsPhotosRepository: MarsPhotosRepository by lazy {
         NetworkMarsPhotosRepository(retrofitService)
+    }
+
+    override val marsMoviesRepository: MarsMoviesRepository by lazy {
+        NetworkMarsMoviesRepository(retrofitService)
     }
 }
